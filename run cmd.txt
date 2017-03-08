@@ -1,1 +1,3 @@
-docker run -d -p 8050:80 -v tp3conf:/var/www/html/typo3conf -v tp3fileadmin:/var/www/html/fileadmin -v tp3uploads:/var/www/html/uploads -v tp3log:/var/log/apache2 nooh/typo3
+docker network create --subnet=172.50.0.0/16 mynet
+docker run --net mynet --ip 172.50.0.1 --name mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql
+docker run --net mynet --ip 172.50.0.2 --link mysql -d -p 8050:80 -v tp3conf:/var/www/html/typo3conf -v tp3fileadmin:/var/www/html/fileadmin -v tp3uploads:/var/www/html/uploads -v tp3log:/var/log/apache2 nooh/typo3
