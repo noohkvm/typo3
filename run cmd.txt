@@ -1,1 +1,1 @@
-docker run -d -p 8050:80 -v tp3conf:/var/www/html/typo3conf -v tp3fileadmin:/var/www/html/fileadmin -v tp3uploads:/var/www/html/uploads nooh/typo3
+docker run -d -p 8050:80 -v tp3conf:/var/www/html/typo3conf -v tp3fileadmin:/var/www/html/fileadmin -v tp3uploads:/var/www/html/uploads -v tp3log:/var/log/apache2 nooh/typo3
